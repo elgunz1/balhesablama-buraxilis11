@@ -1,1 +1,109 @@
-# balhesablama.html
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<title>11-ci Sinif Buraxılış Bal Hesablayıcı</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f0f4f8;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+  .container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    width: 450px;
+  }
+  h2 { text-align: center; color: #333; }
+  label { display: block; margin-top: 15px; color: #555; }
+  input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+  button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  button:hover { background: #45a049; }
+  .result {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 20px;
+    color: #333;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>Buraxılış Bal Hesablayıcı</h2>
+
+  <!-- Azərbaycan dili -->
+  <label for="azdili_q">Azərbaycan dili qapalı sual sayı:</label>
+  <input type="number" id="azdili_q" placeholder="Məs: 20">
+
+  <label for="azdili_y">Azərbaycan dili yazılı iş sual sayı:</label>
+  <input type="number" id="azdili_y" placeholder="Məs: 10">
+
+  <!-- Riyaziyyat -->
+  <label for="riyaziyyat_q">Riyaziyyat qapalı sual sayı:</label>
+  <input type="number" id="riyaziyyat_q" placeholder="Məs: 13">
+
+  <label for="riyaziyyat_a">Riyaziyyat açıq sual sayı:</label>
+  <input type="number" id="riyaziyyat_a" placeholder="Məs: 5">
+
+  <label for="riyaziyyat_y">Riyaziyyat yazılı iş sual sayı:</label>
+  <input type="number" id="riyaziyyat_y" placeholder="Məs: 7">
+
+  <!-- İngilis dili -->
+  <label for="ing_q">İngilis dili qapalı sual sayı:</label>
+  <input type="number" id="ing_q" placeholder="Məs: 23">
+
+  <label for="ing_y">İngilis dili yazılı iş sual sayı:</label>
+  <input type="number" id="ing_y" placeholder="Məs: 7">
+
+  <button onclick="hesabla()">Balı Hesabla</button>
+
+  <div class="result" id="result"></div>
+</div>
+
+<script>
+function hesabla() {
+  // Azərbaycan dili
+  let az_q = parseFloat(document.getElementById('azdili_q').value) || 0;
+  let az_y = parseFloat(document.getElementById('azdili_y').value) || 0;
+  let az_bal = az_q * 2.5 + az_y * 5;
+
+  // Riyaziyyat
+  let riy_q = parseFloat(document.getElementById('riyaziyyat_q').value) || 0;
+  let riy_a = parseFloat(document.getElementById('riyaziyyat_a').value) || 0;
+  let riy_y = parseFloat(document.getElementById('riyaziyyat_y').value) || 0;
+  let riy_bal = riy_q * 3.1 + riy_a * 3.1 + riy_y * 6.3;
+
+  // İngilis dili
+  let ing_q = parseFloat(document.getElementById('ing_q').value) || 0;
+  let ing_y = parseFloat(document.getElementById('ing_y').value) || 0;
+  let ing_bal = ing_q * 2.7 + ing_y * 5.4;
+
+  // Ümumi bal
+  let total = az_bal + riy_bal + ing_bal;
+
+  document.getElementById('result').innerText = `Ümumi balınız: ${total.toFixed(1)}`;
+}
+</script>
+</body>
+</html>
